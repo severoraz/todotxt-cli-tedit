@@ -47,10 +47,6 @@ parameter conditions:
     # Make tmpfile at $TODO_DIR
     tmpfile=$(mktemp -p "$TODO_DIR")
 
-    # END OF todo.txt IMPLEMENTATION BLOCK
-    echo $srcfile
-    echo $line
-
     # Write line to tmpfile
     origstr="$(sed -n ${line}p $srcfile)"
     echo "$origstr" > $tmpfile
