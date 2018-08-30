@@ -1,5 +1,5 @@
 # tedit
-A todotxt-cli extension to edit single tasks in the text editor of your choice.
+A todo.txt-cli shell script extension to edit single tasks in the text editor of your choice.
 
 Listed in the [todo.txt-cli addon directory][1].
 
