@@ -1,7 +1,7 @@
 # tedit
 A todotxt-cli extension to edit single tasks in the text editor of your choice.
 
-Usage:
+## Usage:
 
     todo tedit ITEM# [BASENAME]
 
