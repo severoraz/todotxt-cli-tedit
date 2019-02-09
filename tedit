@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # AUTHOR: severoraz@gmail.com
 # LICENSE: CC-BY-SA v3.0
@@ -58,17 +58,19 @@ parameter conditions:
     # echo repstr: "$repstr"
 
     # Compare lines (why proceed if they're equal?)
+    # If lines are equal,
     if [ "$origstr" = "$repstr" ]; then
-        # Notify
+        # notify
         if [ $verbose -eq 1 ] || [ $safecheck -eq 1 ]; then
             echo "$self: Lines are equal. No changes applied."
         fi
-    else # Lines were indeed modified
+    # Otherwise, lines were indeed modified
+    else 
 
         # (optional) Prompt user to accept changes
         choice=""
         if [ $safecheck == 1 ]; then
-            # State choice
+            # Ask for choice
             echo "$self: Do you wish to replace this line:"
             echo -e "\t$origstr"
             echo "with this line?"
@@ -76,9 +78,9 @@ parameter conditions:
             echo -n "Y/n: "
             # Read choice
             read choice;
-            # Interpret choice
         fi
 
+        # Interpret choice
         # If choice is not empty or "n" or "N", exit without applying changes
         if [ ! -z "${choice}" ] && [ "${choice,,}" == "n" ]; then
             # Notify that changes were aborted
@@ -86,6 +88,7 @@ parameter conditions:
                 echo "$self: Changes aborted."
             fi
             # Skip modifying the file
+        # Otherwise, assume changes are to be applied, and apply them
         else
             # Replace original line with contents from tmpfile
             sed -i "${line}c$repstr" $srcfile
@@ -94,7 +97,7 @@ parameter conditions:
             if [ $safecheck == 1 ] || [ $verbose == 1 ]; then
                 echo "$self: Changes applied."
             fi
-        fi
+        fi 
     fi
         
     # Delete tmpfile
