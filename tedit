@@ -41,7 +41,7 @@ parameter conditions:
     if [[ -z $3 ]]; then
         srcfile="$TODO_FILE"
     else
-        srcfile="$TODO_DIR/$3.txt"
+        srcfile="$TODO_DIR/$3"
     fi
 
     # Make tmpfile at $TODO_DIR
